@@ -1,0 +1,36 @@
+{% load static %}
+
+<html>
+
+<div class="topnav">
+  <a href="#">Oatmeal&Raisin</a>
+  <div class="topnav-right">
+    {% if user.is_authenticated %}
+    <a align="right" href="{% url 'blog:logout' %}" role="button">Log Out</a>
+    {% endif %}
+  </div>
+</div>
+
+<head>
+  <title>AddBlog</title>
+  <link rel="stylesheet" type="text/css" href="{% static "blog/addForm.css" %}">
+
+<body>
+  <div class="addBox">
+    <form method="post">
+      {% csrf_token %}
+      {{ form  }}
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <center><input type="submit" value="Submit"></center>
+    </form>
+
+  </div>
+
+</body>
+</head>
+
+</html>
